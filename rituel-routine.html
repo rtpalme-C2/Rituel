@@ -458,6 +458,141 @@ tr:last-child td { border-bottom: none; }
   .today-day { font-size: 2.2rem; }
 }
 </style>
+<script>
+// ── App icon — generates apple-touch-icon + favicon at runtime ────────────────
+(function() {
+  function buildIcon(size) {
+    const c = document.createElement('canvas');
+    c.width = c.height = size;
+    const ctx = c.getContext('2d');
+    const r = size * 0.22; // corner radius
+
+    // Background — dark brown rounded square
+    ctx.beginPath();
+    ctx.moveTo(r, 0); ctx.lineTo(size - r, 0);
+    ctx.quadraticCurveTo(size, 0, size, r);
+    ctx.lineTo(size, size - r);
+    ctx.quadraticCurveTo(size, size, size - r, size);
+    ctx.lineTo(r, size); ctx.quadraticCurveTo(0, size, 0, size - r);
+    ctx.lineTo(0, r); ctx.quadraticCurveTo(0, 0, r, 0);
+    ctx.closePath();
+    ctx.fillStyle = '#2C2418';
+    ctx.fill();
+
+    // Sweeping background curves
+    ctx.save();
+    ctx.beginPath(); ctx.moveTo(-size*.1, size*.7); ctx.bezierCurveTo(size*.3,size*.3,size*.8,size*.55,size*1.1,size*.2);
+    ctx.strokeStyle = 'rgba(184,150,90,.12)'; ctx.lineWidth = size*.012; ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(-size*.1, size*.45); ctx.bezierCurveTo(size*.4,size*.1,size*.9,size*.4,size*1.1,size*.15);
+    ctx.strokeStyle = 'rgba(184,150,90,.07)'; ctx.lineWidth = size*.009; ctx.stroke();
+    ctx.restore();
+
+    // Draw eyedropper — upright, centered
+    // viewBox 0 0 28 82, rendered at ~40% of canvas height, centered
+    const sc = size / 180;  // scale factor relative to 180px design
+    const ox = size * 0.5;  // center x
+    const oy = size * 0.12; // top offset
+
+    function px(x) { return ox + (x - 14) * sc * 4.5; }
+    function py(y) { return oy + y * sc * 4.5; }
+
+    const brass   = '#B8965A';
+    const brassL  = '#D4AE78';
+    const hilight = '#F5F0E8';
+
+    // Capsule bulb
+    ctx.beginPath();
+    const bx = px(8), bw = 12*sc*4.5, bh = 20*sc*4.5, brad = 6*sc*4.5;
+    ctx.roundRect(bx, py(2), bw, bh, brad);
+    ctx.fillStyle = brass; ctx.globalAlpha = 0.92; ctx.fill();
+    // Bulb highlight
+    ctx.beginPath(); ctx.roundRect(px(9.5), py(3.5), 4*sc*4.5, 14*sc*4.5, 2*sc*4.5);
+    ctx.fillStyle = brassL; ctx.globalAlpha = 0.28; ctx.fill();
+
+    // Collar flange
+    ctx.beginPath(); ctx.roundRect(px(5), py(21), 18*sc*4.5, 4*sc*4.5, 2*sc*4.5);
+    ctx.fillStyle = brass; ctx.globalAlpha = 0.88; ctx.fill();
+
+    // Barrel fill
+    ctx.beginPath(); ctx.roundRect(px(10.5), py(25), 7*sc*4.5, 25*sc*4.5, 1*sc*4.5);
+    ctx.fillStyle = brassL; ctx.globalAlpha = 0.16; ctx.fill();
+    // Barrel stroke
+    ctx.beginPath(); ctx.roundRect(px(10.5), py(25), 7*sc*4.5, 25*sc*4.5, 1*sc*4.5);
+    ctx.strokeStyle = brass; ctx.lineWidth = 1.2*sc*4.5; ctx.globalAlpha = 0.8; ctx.stroke();
+
+    // Liquid level
+    ctx.beginPath(); ctx.roundRect(px(11.5), py(32), 5*sc*4.5, 17*sc*4.5, 0.5*sc*4.5);
+    ctx.fillStyle = brass; ctx.globalAlpha = 0.42; ctx.fill();
+
+    // Glass highlight line
+    ctx.beginPath(); ctx.moveTo(px(12.2), py(27)); ctx.lineTo(px(12.2), py(48));
+    ctx.strokeStyle = hilight; ctx.lineWidth = 0.8*sc*4.5; ctx.globalAlpha = 0.28; ctx.stroke();
+
+    // Tip knob fill
+    ctx.beginPath(); ctx.roundRect(px(9.5), py(50), 9*sc*4.5, 5*sc*4.5, 1.5*sc*4.5);
+    ctx.fillStyle = brassL; ctx.globalAlpha = 0.5; ctx.fill();
+    // Tip knob stroke
+    ctx.beginPath(); ctx.roundRect(px(9.5), py(50), 9*sc*4.5, 5*sc*4.5, 1.5*sc*4.5);
+    ctx.strokeStyle = brass; ctx.lineWidth = 0.9*sc*4.5; ctx.globalAlpha = 0.65; ctx.stroke();
+
+    // Taper
+    ctx.beginPath();
+    ctx.moveTo(px(11), py(55)); ctx.lineTo(px(17), py(55));
+    ctx.lineTo(px(15.2), py(62)); ctx.lineTo(px(12.8), py(62)); ctx.closePath();
+    ctx.fillStyle = brassL; ctx.globalAlpha = 0.6; ctx.fill();
+    ctx.beginPath();
+    ctx.moveTo(px(11), py(55)); ctx.lineTo(px(17), py(55));
+    ctx.lineTo(px(15.2), py(62)); ctx.lineTo(px(12.8), py(62)); ctx.closePath();
+    ctx.strokeStyle = brass; ctx.lineWidth = 0.8*sc*4.5; ctx.globalAlpha = 0.5; ctx.stroke();
+
+    // Nozzle ring
+    ctx.beginPath(); ctx.ellipse(px(14), py(62.5), 2.2*sc*4.5, 1.4*sc*4.5, 0, 0, Math.PI*2);
+    ctx.fillStyle = brass; ctx.globalAlpha = 0.88; ctx.fill();
+
+    // Teardrop
+    ctx.beginPath();
+    ctx.moveTo(px(14), py(65));
+    ctx.bezierCurveTo(px(14), py(65), px(9.8), py(72), px(9.8), py(75.5));
+    ctx.bezierCurveTo(px(9.8), py(78.5), px(11.7), py(80.5), px(14), py(80.5));
+    ctx.bezierCurveTo(px(16.3), py(80.5), px(18.2), py(78.5), px(18.2), py(75.5));
+    ctx.bezierCurveTo(px(18.2), py(72), px(14), py(65), px(14), py(65));
+    ctx.closePath();
+    ctx.fillStyle = brass; ctx.globalAlpha = 0.82; ctx.fill();
+
+    // Drop highlight
+    ctx.save();
+    ctx.translate(px(12.2), py(74));
+    ctx.rotate(-15 * Math.PI / 180);
+    ctx.beginPath(); ctx.ellipse(0, 0, 1*sc*4.5, 1.9*sc*4.5, 0, 0, Math.PI*2);
+    ctx.fillStyle = hilight; ctx.globalAlpha = 0.28; ctx.fill();
+    ctx.restore();
+
+    ctx.globalAlpha = 1;
+    return c.toDataURL('image/png');
+  }
+
+  window.addEventListener('DOMContentLoaded', function() {
+    // Apple touch icon (180×180)
+    const link180 = document.createElement('link');
+    link180.rel = 'apple-touch-icon';
+    link180.href = buildIcon(180);
+    document.head.appendChild(link180);
+
+    // Favicon (32×32)
+    const link32 = document.createElement('link');
+    link32.rel = 'icon'; link32.type = 'image/png';
+    link32.href = buildIcon(32);
+    document.head.appendChild(link32);
+
+    // Web app meta tags for iPhone home screen
+    const addMeta = (n, c) => { const m = document.createElement('meta'); m.name = n; m.content = c; document.head.appendChild(m); };
+    addMeta('apple-mobile-web-app-capable', 'yes');
+    addMeta('apple-mobile-web-app-status-bar-style', 'black-translucent');
+    addMeta('apple-mobile-web-app-title', 'Rituel');
+    addMeta('theme-color', '#2C2418');
+  });
+})();
+</script>
 </head>
 <body>
 
