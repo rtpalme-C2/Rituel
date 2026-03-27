@@ -967,7 +967,19 @@ function renderCycle() {
 
   // Show current week + next week
   const ci = getCycleInfo(today);
-  if (!ci) { el.innerHTML = `<div class="setup-card"><div class="setup-body">Cycle date is in the future.</div></div>`; return; }
+  if (!ci) {
+    el.innerHTML = `
+      <div class="setup-card" style="border-left:3px solid var(--gold)">
+        <div class="setup-title" style="color:var(--gold)">Cycle start date</div>
+        <div class="setup-body">The current start date is in the future. Update it to a past Monday to anchor the cycle correctly.</div>
+        <div class="form-row" style="margin-bottom:10px">
+          <div class="form-label">Week 1 Monday</div>
+          <input type="date" id="cycle-adjust-input" value="${settings.cycleStartDate}">
+        </div>
+        <button class="btn-primary" onclick="adjustCycleStart()">Update</button>
+      </div>`;
+    return;
+  }
 
   // Adjust card — rendered at top, prominent
   const adjustCard = `
