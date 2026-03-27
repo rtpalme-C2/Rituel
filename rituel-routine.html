@@ -84,7 +84,7 @@ header p {
 .btn-sync {
   font-family: inherit; font-size: .62rem; font-weight: 500;
   letter-spacing: .1em; text-transform: uppercase;
-  padding: 4px 13px; border-radius: 2px;
+  padding: 4px 16px; border-radius: 999px;
   border: 1px solid rgba(184,150,90,.35);
   background: transparent; color: var(--gold-light);
   cursor: pointer; transition: all .18s;
@@ -118,7 +118,7 @@ header p {
 /* ── Today card ── */
 .today-band {
   background: var(--brown);
-  border-radius: 4px 4px 0 0;
+  border-radius: 16px 16px 0 0;
   padding: 22px 26px 18px;
   position: relative; overflow: hidden;
 }
@@ -160,7 +160,7 @@ header p {
   border-top: none;
   box-shadow: 0 4px 16px var(--shadow);
 }
-.routine-card:last-child { border-radius: 0 0 4px 4px; }
+.routine-card:last-child { border-radius: 0 0 16px 16px; }
 
 .routine-header {
   padding: 10px 26px;
@@ -174,7 +174,7 @@ header p {
 .btn-done {
   font-family: inherit; font-size: .62rem; font-weight: 500;
   letter-spacing: .1em; text-transform: uppercase;
-  padding: 5px 14px; border-radius: 2px;
+  padding: 5px 16px; border-radius: 999px;
   border: 1px solid var(--rule);
   background: white; color: var(--mist);
   cursor: pointer; transition: all .18s;
@@ -230,13 +230,13 @@ header p {
   display: flex; align-items: center; gap: 10px;
   padding: 10px 16px; margin-bottom: 18px;
   background: white; border: 1px solid var(--rule);
-  border-radius: 3px; box-shadow: 0 2px 8px var(--shadow);
+  border-radius: 16px; box-shadow: 0 2px 8px var(--shadow);
   font-size: .74rem; color: var(--note);
 }
 .week-badge {
   font-size: .6rem; font-weight: 500; letter-spacing: .08em;
   text-transform: uppercase; padding: 3px 10px;
-  border-radius: 2px; background: var(--gold-pale);
+  border-radius: 999px; background: var(--gold-pale);
   color: var(--note); flex-shrink: 0;
 }
 .week-badge.peel { background: var(--brown); color: var(--gold-light); }
@@ -244,7 +244,7 @@ header p {
 /* ── Cycle setup ── */
 .setup-card {
   background: white; border: 1px solid var(--rule);
-  border-radius: 3px; padding: 22px 26px;
+  border-radius: 16px; padding: 22px 26px;
   box-shadow: 0 2px 8px var(--shadow); margin-bottom: 18px;
 }
 .setup-title {
@@ -257,7 +257,7 @@ header p {
 .form-row input, .form-row select, .form-row textarea {
   font-family: inherit; font-size: .82rem;
   padding: 7px 10px; border: 1px solid var(--rule);
-  border-radius: 2px; background: var(--cream-pale);
+  border-radius: 999px; background: var(--cream-pale);
   color: var(--body); outline: none; transition: border-color .18s;
 }
 .form-row input:focus, .form-row select:focus, .form-row textarea:focus {
@@ -267,7 +267,7 @@ header p {
 .btn-primary {
   font-family: inherit; font-size: .68rem; font-weight: 500;
   letter-spacing: .1em; text-transform: uppercase;
-  padding: 8px 18px; border-radius: 2px;
+  padding: 8px 22px; border-radius: 999px;
   border: none; background: var(--brown);
   color: var(--gold-light); cursor: pointer; transition: all .18s;
 }
@@ -275,7 +275,7 @@ header p {
 .btn-secondary {
   font-family: inherit; font-size: .68rem; font-weight: 400;
   letter-spacing: .08em; text-transform: uppercase;
-  padding: 8px 16px; border-radius: 2px;
+  padding: 8px 20px; border-radius: 999px;
   border: 1px solid var(--rule); background: white;
   color: var(--mist); cursor: pointer; transition: all .18s;
 }
@@ -288,7 +288,7 @@ header p {
 }
 .metric {
   background: white; border: 1px solid var(--rule);
-  border-radius: 3px; padding: 14px 18px;
+  border-radius: 16px; padding: 14px 18px;
   box-shadow: 0 2px 8px var(--shadow);
 }
 .metric-label {
@@ -310,7 +310,7 @@ header p {
 }
 .product-table-wrap {
   background: white; border: 1px solid var(--rule);
-  border-radius: 3px; overflow: hidden;
+  border-radius: 16px; overflow: hidden;
   box-shadow: 0 2px 8px var(--shadow);
 }
 table { width: 100%; border-collapse: collapse; font-size: .8rem; }
@@ -328,7 +328,7 @@ tr:last-child td { border-bottom: none; }
 .badge {
   display: inline-block; font-size: .58rem; font-weight: 500;
   letter-spacing: .06em; text-transform: uppercase;
-  padding: 3px 8px; border-radius: 2px;
+  padding: 3px 10px; border-radius: 999px;
 }
 .b-active    { background: var(--gold-pale); color: var(--note); }
 .b-depleting { background: #fef6e4; color: #9a6f20; }
@@ -336,7 +336,7 @@ tr:last-child td { border-bottom: none; }
 .toggle-btn {
   font-family: inherit; font-size: .6rem; font-weight: 500;
   letter-spacing: .08em; text-transform: uppercase;
-  padding: 3px 10px; border-radius: 2px;
+  padding: 3px 12px; border-radius: 999px;
   border: 1px solid var(--rule); background: white;
   color: var(--mist); cursor: pointer; transition: all .15s;
 }
@@ -345,7 +345,7 @@ tr:last-child td { border-bottom: none; }
 /* ── Log tab ── */
 .log-entry {
   background: white; border: 1px solid var(--rule);
-  border-radius: 3px; padding: 16px 20px;
+  border-radius: 16px; padding: 16px 20px;
   margin-bottom: 10px; box-shadow: 0 2px 8px var(--shadow);
 }
 .log-date { font-size: .68rem; color: var(--mist); margin-bottom: 4px; }
@@ -359,7 +359,7 @@ tr:last-child td { border-bottom: none; }
 .btn-small {
   font-family: inherit; font-size: .6rem; font-weight: 500;
   letter-spacing: .08em; text-transform: uppercase;
-  padding: 4px 11px; border-radius: 2px;
+  padding: 4px 13px; border-radius: 999px;
   border: 1px solid var(--rule); background: white;
   color: var(--mist); cursor: pointer; transition: all .15s;
 }
@@ -380,7 +380,7 @@ tr:last-child td { border-bottom: none; }
 }
 .modal {
   background: var(--cream-pale); border-top: 3px solid var(--gold);
-  border-radius: 3px; padding: 26px;
+  border-radius: 16px; padding: 26px;
   width: min(520px, 90vw); max-height: 88vh; overflow-y: auto;
   box-shadow: 0 24px 64px rgba(44,35,18,.35);
   animation: slideUp .2s ease;
@@ -397,7 +397,7 @@ tr:last-child td { border-bottom: none; }
   display: inline-flex; align-items: center; gap: 6px;
   background: var(--brown); color: var(--gold-light);
   font-size: .62rem; letter-spacing: .08em; text-transform: uppercase;
-  padding: 4px 12px; border-radius: 2px; margin-left: 8px;
+  padding: 4px 14px; border-radius: 999px; margin-left: 8px;
   font-weight: 500;
 }
 
@@ -409,7 +409,7 @@ tr:last-child td { border-bottom: none; }
 .search-wrap { position: relative; flex: 1; min-width: 160px; }
 .search-wrap input {
   width: 100%; padding: 6px 10px 6px 30px;
-  border: 1px solid var(--rule); border-radius: 2px;
+  border: 1px solid var(--rule); border-radius: 999px;
   font-family: inherit; font-size: .78rem;
   color: var(--body); outline: none; transition: border-color .18s;
   background: var(--cream-pale);
@@ -427,7 +427,7 @@ tr:last-child td { border-bottom: none; }
 }
 .cycle-day {
   background: white; border: 1px solid var(--rule);
-  border-radius: 3px; padding: 10px 6px 8px;
+  border-radius: 12px; padding: 10px 6px 8px;
   text-align: center; box-shadow: 0 1px 4px var(--shadow);
   transition: all .15s;
 }
@@ -997,7 +997,7 @@ function renderToday() {
         <div class="setup-body">To show the correct evening routine each night, set the date of your most recent Week 1 Monday. This anchors the 4-week rotating cycle.</div>
         <div class="form-row">
           <div class="form-label">Week 1 Monday — most recent</div>
-          <input type="date" id="cycle-start-input">
+          <input type="date" id="cycle-start-input" autocomplete="off">
         </div>
         <div style="display:flex;gap:8px">
           <button class="btn-primary" onclick="saveCycleStart()">Set cycle start</button>
